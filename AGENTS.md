@@ -1,7 +1,8 @@
-# Reglas para agentes de código (OpenCode) · Bodega Veralma
+# Reglas para agentes de código (OpenCode) · Raíces del Vino
 
 - Stack obligatorio: React, Next.js (App Router), CSS con variables, PostgreSQL en Neon, Git/GitHub, Vercel. Prohibido: Bootstrap, jQuery, Tailwind, Vue, Angular.
-- Identidad: no modificar ni redibujar el logotipo (`public/assets/logo/logo-principal.png`). Paleta: #FEFEFC, #610139, #8E1D56, #C79526. Títulos Playfair Display Bold; textos Lora Regular. Trato de «vos».
+- Identidad: no modificar ni redibujar el logotipo (`public/assets/logo/logo-raices-del-vino.png`). Paleta: #FEFEFC, #610139, #8E1D56, #C79526. Títulos Playfair Display Bold; textos Lora Regular. Trato de «vos».
+- Raíces del Vino es un emprendimiento propio de turismo enológico, NO una bodega: no afirmar que elabora vinos ni que es dueña de bodegas o fincas. Las experiencias se organizan en colaboración con bodegas y productores, sujetas a acuerdos.
 - No inventar datos: premios, certificaciones, precios, añadas, graduaciones ni características de los vinos. Si falta un dato, dejar el campo en `null` y mostrar «a confirmar».
 - Una consulta o solicitud solo se confirma al usuario si se guardó en PostgreSQL. Nunca simular el almacenamiento ni guardar solo en el navegador.
 - Las credenciales van en `.env.local` (fuera de Git). Nunca en el código ni en `NEXT_PUBLIC_*`, salvo el número de WhatsApp.

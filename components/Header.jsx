@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const LINKS = [["#bodega","La bodega"],["#vinos","Vinos"],["#experiencias","Experiencias"],["#finca","La finca"],["#galeria","Galería"],["#contacto","Contacto"]];
+const LINKS = [["#bodega","Nosotros"],["#vinos","Vinos"],["#experiencias","Experiencias"],["#finca","El terruño"],["#galeria","Galería"],["#contacto","Contacto"]];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -15,8 +15,8 @@ export default function Header() {
   return (
     <header className={`header${scrolled || open ? " solid" : ""}`}>
       <div className="container header-row">
-        <a href="#inicio" className="brand" aria-label="Bodega Veralma, ir al inicio">
-          <Image src="/assets/logo/logo-principal.png" alt="Bodega Veralma" width={56} height={56} priority />
+        <a href="#inicio" className="brand" aria-label="Raíces del Vino, ir al inicio">
+          <Image src="/assets/logo/logo-raices-del-vino.png" alt="Raíces del Vino · Turismo enológico · Tinogasta" width={792} height={905} priority />
         </a>
         <button className="burger" aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} aria-controls="nav" onClick={() => setOpen(!open)}>
           <span /><span /><span />

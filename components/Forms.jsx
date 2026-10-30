@@ -31,8 +31,7 @@ function Field({ id, label, error, full, children }) {
     </div>
   );
 }
-// "p" es un prefijo solo para el id (así dos formularios en la misma página no repiten ids); el name no cambia.
-const ia = (id, error, p = "") => ({ id: p + id, name: id, "aria-invalid": error ? "true" : undefined, "aria-describedby": error ? `${p + id}-err` : undefined });
+const ia = (id, error) => ({ id, name: id, "aria-invalid": error ? "true" : undefined, "aria-describedby": error ? `${id}-err` : undefined });
 const Status = ({ state, okText }) => (
   <div className="full" role="status" aria-live="polite">
     {state.status === "sending" && <p>Enviando…</p>}
@@ -43,19 +42,18 @@ const Status = ({ state, okText }) => (
 
 export function ContactForm() {
   const [state, onSubmit] = useSubmit("/api/consultas", validateConsulta);
-  const e = state.errors, P = "c-";
+  const e = state.errors;
   return (
     <form onSubmit={onSubmit} noValidate>
-      <Field id={P + "nombre"} label="Nombre completo" error={e.nombre}><input {...ia("nombre", e.nombre, P)} autoComplete="name" required /></Field>
-      <Field id={P + "email"} label="Correo electrónico" error={e.email}><input {...ia("email", e.email, P)} type="email" autoComplete="email" required /></Field>
-      <Field id={P + "telefono"} label="Teléfono (opcional)" error={e.telefono}><input {...ia("telefono", e.telefono, P)} type="tel" autoComplete="tel" /></Field>
-      <Field id={P + "motivo"} label="Motivo de consulta" error={e.motivo}>
-        <select {...ia("motivo", e.motivo, P)} defaultValue="" required>
+      <Field id="nombre" label="Nombre" error={e.nombre}><input {...ia("nombre", e.nombre)} autoComplete="name" required /></Field>
+      <Field id="email" label="Correo electrónico" error={e.email}><input {...ia("email", e.email)} type="email" autoComplete="email" required /></Field>
+      <Field id="motivo" label="Motivo" error={e.motivo} full>
+        <select {...ia("motivo", e.motivo)} defaultValue="" required>
           <option value="" disabled>Elegí una opción</option>
           <option>Consulta general</option><option>Comercios y distribuidores</option><option>Cursos y talleres</option><option>Otro motivo</option>
         </select>
       </Field>
-      <Field id={P + "mensaje"} label="Mensaje" error={e.mensaje} full><textarea {...ia("mensaje", e.mensaje, P)} rows={4} required /></Field>
+      <Field id="mensaje" label="Mensaje" error={e.mensaje} full><textarea {...ia("mensaje", e.mensaje)} rows={4} required /></Field>
       <button className="btn full" type="submit" disabled={state.status === "sending"}>Enviar consulta</button>
       <Status state={state} okText="¡Gracias! Recibimos tu consulta y te responderemos a la brevedad." />
     </form>
@@ -85,7 +83,7 @@ export function VisitForm({ experiences }) {
       </Field>
       <Field id="comentarios" label="Comentarios adicionales" error={e.comentarios} full><textarea {...ia("comentarios", e.comentarios)} rows={3} /></Field>
       <button className="btn full" type="submit" disabled={state.status === "sending"}>Enviar solicitud de visita</button>
-      <Status state={state} okText="Recibimos tu solicitud. Todavía no es una reserva: la bodega revisará la disponibilidad y te confirmará la visita." />
+      <Status state={state} okText="Recibimos tu solicitud. Todavía no es una reserva: Raíces del Vino revisará la disponibilidad y te confirmará la visita." />
     </form>
   );
 }

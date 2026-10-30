@@ -37,7 +37,7 @@ h2{font-size:clamp(2.1rem,4vw,3rem)} h3{font-size:1.55rem}
 .header{position:fixed;top:0;left:0;right:0;z-index:30;background:transparent;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
 .header-row{display:flex;align-items:center;justify-content:space-between;height:var(--header)}
 .brand{display:block;background:var(--marfil);padding:.25rem;border-radius:var(--r)}
-.brand img{height:56px;width:auto}
+.brand img{height:64px;width:auto}
 nav{display:flex;align-items:center;gap:clamp(1rem,2vw,1.9rem)}
 nav a:not(.btn){text-decoration:none;font-weight:500;font-size:.98rem;color:var(--marfil);text-shadow:0 1px 6px rgba(40,0,24,.55);padding-block:.3rem;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
 nav a:not(.btn):hover{border-color:var(--dorado)}
@@ -112,7 +112,7 @@ input,select,textarea{width:100%;font:inherit;padding:.7rem .8rem;border:1.5px s
 .footer h3{color:var(--dorado);font-size:1.3rem;margin-bottom:var(--s1)}
 .footer a{display:block;text-decoration:none;padding:.15rem 0}.footer a:hover{color:var(--dorado)}
 .foot-logo{background:var(--marfil);display:inline-block;padding:.4rem;margin-bottom:var(--s2);border-radius:var(--r)}
-.foot-logo img{height:80px;width:auto}
+.foot-logo img{height:150px;width:auto}
 .copy{margin-top:var(--s4);padding-block:var(--s3);border-top:1px solid rgba(254,254,252,.25);font-size:.85rem}
 /* ============ 12. MODAL ============ */
 .modal{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:var(--s2);background:rgba(40,0,24,.85)}
@@ -156,9 +156,9 @@ figure img{width:100%;height:100%;object-fit:cover}
 .dark h2{color:var(--marfil)} .dark .draft{color:#e7c978;border-color:var(--dorado)}
 .terroir{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto 260px 260px;gap:var(--s2)}
 .terroir figure{overflow:hidden;border-radius:var(--r)}
-.terroir-text{grid-column:1/8;grid-row:1;padding-bottom:var(--s3)} .terroir-text p{margin-top:var(--s2);max-width:56ch}
+.terroir-text{grid-column:1/13;grid-row:1;padding-bottom:var(--s3)} .terroir-text p{margin-top:var(--s2);max-width:56ch}
 .t1{grid-column:1/8;grid-row:2/4}
-.t2{grid-column:8/13;grid-row:1/3}
+.t2{grid-column:8/13;grid-row:2/3}
 .t3{grid-column:8/13;grid-row:3/4}
 /* Vinos */
 .bottle{height:380px;padding:var(--s2)}
@@ -225,14 +225,14 @@ input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="tr
 @media (max-width:1024px){nav{display:none}nav.open{display:flex}.stats{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}.photos{grid-template-columns:repeat(2,1fr)}}
 
-/* ============ 16. VINOS CON PRECIO Y CONTACTO (agregado) ============ */
-.price .per{font-weight:400;font-size:.85rem;color:#3a1a2b}
-.demo-note{margin-top:var(--s3);padding:.8rem 1rem;border-left:4px solid var(--dorado);background:var(--marfil);font-size:.92rem;color:var(--burdeos)}
-.contact-list{list-style:none;margin:var(--s3) 0;padding:0;display:grid;gap:var(--s2)}
-.contact-list li{display:flex;gap:var(--s2);align-items:flex-start;padding-bottom:var(--s2);border-bottom:1px solid var(--line)}
-.contact-list li:last-child{border-bottom:0}
-.contact-list .ci-icon{flex:none;color:var(--ciruela);margin-top:.15rem}
-.contact-list strong{display:block;font-family:var(--serif);color:var(--burdeos);font-size:1.1rem}
-.contact-list a{color:var(--ciruela);text-decoration:underline;text-decoration-color:var(--dorado);text-underline-offset:3px;word-break:break-word}
-.contact-list a:hover{color:var(--burdeos)}
-.footer a[href^="tel:"],.footer a[href^="mailto:"]{display:inline;text-decoration:underline}
+/* ============ 14. AJUSTES (terruño, vinos sin foto, pie) ============ */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s3)}
+.facts article{border-top:3px solid var(--dorado);padding-top:var(--s2)}
+.facts h3{color:var(--dorado);margin-bottom:var(--s1)}
+.facts p{margin:0;max-width:none;font-size:1rem}
+.bottle.no-photo{background:linear-gradient(150deg,var(--ciruela),var(--burdeos));align-items:center}
+.bottle-name{font-family:var(--serif);font-weight:700;font-size:1.7rem;line-height:1.15;color:var(--marfil);text-align:center;padding:var(--s2)}
+.foot-grid{grid-template-columns:1.4fr 1fr 1.2fr}
+.footer p{margin:0 0 var(--s1)}
+@media (max-width:1024px){.facts{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:720px){.foot-grid{grid-template-columns:1fr}}

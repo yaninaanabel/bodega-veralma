@@ -37,5 +37,4 @@ CREATE TABLE IF NOT EXISTS solicitudes_visita (
   comentarios TEXT,
   creada_en TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   estado TEXT NOT NULL DEFAULT 'pendiente' CHECK (estado IN ('pendiente','confirmada','rechazada'))
-);
-ALTER TABLE consultas ADD COLUMN IF NOT EXISTS telefono TEXT
+)

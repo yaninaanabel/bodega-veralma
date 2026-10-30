@@ -1,4 +1,4 @@
-# Bodega Veralma · Sitio web (Next.js + PostgreSQL en Neon)
+# Raíces del Vino · Sitio web (Next.js + PostgreSQL en Neon)
 
 ## Qué se verificó y qué no
 Verificado en el entorno de desarrollo (sin internet): sintaxis de todos los archivos JS/JSX, balance del CSS, sentencias SQL y las reglas de validación (probadas con Node).
@@ -21,7 +21,7 @@ npm install
 ```
 
 ## 3. Crear la base de datos en Neon
-1. Entrá a Neon → *Create project* (nombre: `veralma`).
+1. Entrá a Neon → *Create project* (nombre: `raices-del-vino`).
 2. En el panel, botón **Connect** → copiá la *Connection string* (empieza con `postgresql://`).
 3. En la terminal de VS Code:
 ```powershell
@@ -49,7 +49,7 @@ Sin `DATABASE_URL`, el catálogo se ve igual (datos locales) pero los formulario
 ```powershell
 git init
 git add .
-git commit -m "Sitio Bodega Veralma"
+git commit -m "Sitio Raíces del Vino"
 ```
 Creá un repositorio vacío en GitHub y ejecutá los dos comandos que te muestra (`git remote add origin ...` y `git push -u origin main`). `.env.local` está en `.gitignore` y no se sube.
 
@@ -59,7 +59,7 @@ Creá un repositorio vacío en GitHub y ejecutá los dos comandos que te muestra
 3. *Deploy*.
 
 ## Funciones listas y pendientes
-Ver `docs/01-requerimientos.md`. Falta cargar: precios, añadas, graduación y notas de cata; duración y horarios de las experiencias; teléfono, correo y redes (pie y contacto); fotos de botellas de Cabernet Sauvignon, Syrah, Torrontés y Tempranillo (hoy Malbec usa la foto de La Gesta y Chardonnay la de Seismiles, según sus etiquetas); y confirmar la ubicación del mapa.
+Ver `docs/01-requerimientos.md`. Falta cargar: duración y horarios de las experiencias; redes; fotos de botellas de Cabernet Sauvignon, Syrah, Torrontés y Tempranillo (hoy Malbec usa la foto de La Gesta y Chardonnay la de Seismiles, según sus etiquetas); y confirmar la ubicación del mapa.
 Las imágenes de copas genéricas de la galería tienen baja resolución (unos 260 px).
 
 ## Estructura

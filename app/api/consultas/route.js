@@ -9,10 +9,7 @@ export async function POST(request) {
   if (!dbConfigured()) return NextResponse.json({ ok:false, error:"El servicio de consultas todavía no está configurado." }, { status:503 });
   try {
     const sql = getSql();
-    // El teléfono es opcional: solo se guarda si la persona lo ingresó (requiere la columna "telefono": npm.cmd run db:setup).
-    const rows = v.telefono
-      ? await sql`INSERT INTO consultas (nombre,email,telefono,motivo,mensaje) VALUES (${v.nombre},${v.email},${v.telefono},${v.motivo},${v.mensaje}) RETURNING id`
-      : await sql`INSERT INTO consultas (nombre,email,motivo,mensaje) VALUES (${v.nombre},${v.email},${v.motivo},${v.mensaje}) RETURNING id`;
+    const rows = await sql`INSERT INTO consultas (nombre,email,motivo,mensaje) VALUES (${v.nombre},${v.email},${v.motivo},${v.mensaje}) RETURNING id`;
     return NextResponse.json({ ok:true, id:rows[0].id }, { status:201 });
   } catch (e) { console.error("POST /api/consultas:", e); return NextResponse.json({ ok:false, error:"No pudimos guardar tu consulta. Probá de nuevo en unos minutos." }, { status:500 }); }
 }
